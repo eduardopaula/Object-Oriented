@@ -3,33 +3,25 @@ class Song:
 
     Attributes:
         title (str): The title of the song
-        artist (Artist): An artist object representing the song's creator.
-        duration (int): The duration of the song in secongs. May be zero
+        artist (Artist): An artist object representing the songs creator.
+        duration (int): The duration of the song in seconds.  May be zero
     """
 
     def __init__(self, title, artist, duration=0):
-        """ Song init method
-
-        Args:
-            title (str): Initialises the 'title' attribute
-            artist (Artist): At artist object representing the song's creator
-            duration (Optional[int]): Initial value for the 'duration' attribute.
-                Will default to zero if not specified.
-        """
         self.title = title
         self.artist = artist
         self.duration = duration
 
+
 class Album:
-    """ Class to represent an Album, using its track list
+    """ Class to represent an Album, using it's track list
 
     Attributes:
         name (str): The name of the album.
         year (int): The year was album was released.
-        artist: (Artist): The artist responsible for the album.
-            If not specified, the artis will default to an artist with the name
-            "Various Artists"
-        tracks (List[Song]): A list of the songs on the album.
+        artist: (Artist): The artist responsible for the album. If not specified,
+        the artist will default to an artist with the name "Various Artists".
+        tracks (List[Song]):  A list of the songs on the album.
 
     Methods:
         add_song: Used to add a new song to the album's track list.
@@ -45,9 +37,8 @@ class Album:
 
         self.tracks = []
 
-
     def add_song(self, song, position=None):
-        """ Adds a song to the track list
+        """Adds a song to the track list
 
         Args:
             song (Song): A song to add.
@@ -62,7 +53,7 @@ class Album:
 
 
 class Artist:
-    """ Basic class to store artist details.
+    """Basic class to store artist details.
 
     Attributes:
         name (str): The name of the artist.
@@ -78,15 +69,63 @@ class Artist:
         self.name = name
         self.albums = []
 
-
     def add_album(self, album):
-        """ Add a new album to the list.
+        """Add a new album to the list.
 
         Args:
             album (Album): Album object to add to the list.
-             If the albums is already present, it will not added again (although this is yet to implement).
+                If the album is already present, it will not added again (although this is yet to implemented).
         """
         self.albums.append(album)
+
+
+def load_data():
+    new_artist = None
+    new_album = None
+    artist_list = []
+
+    with open("albums.txt", "r") as albums:
+        for line in albums:
+            # data row should consist of (artist, album, year, song)
+            artist_field, album_field, year_field, song_field = tuple(line.strip('\n').split('\t'))
+            year_field = int(year_field)
+            print(artist_field, album_field, year_field, song_field)
+
+
+if __name__ == '__main__':
+    load_data()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
