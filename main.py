@@ -15,3 +15,9 @@ print(tim)
 
 tim.lives -= 1
 print(tim)
+
+tim._lives = 9
+print(tim)
+
+tim.level = 2
+print(tim)
