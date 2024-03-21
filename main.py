@@ -1,23 +1,10 @@
-from player import Player
+from enemy import Enemy, Troll
 
-tim = Player("Tim")
+ugly_troll = Troll()
+print("Ugly troll - {}".format(ugly_troll))
 
-print(tim.name)
-print(tim.lives)
-tim.lives -= 1
-print(tim)
+another_troll = Troll("Ug", 18, 1)
+print("Another troll - {}".format(another_troll))
 
-tim.lives -= 1
-print(tim)
-
-tim.lives -= 1
-print(tim)
-
-tim.lives -= 1
-print(tim)
-
-tim._lives = 9
-print(tim)
-
-tim.level = 2
-print(tim)
+brother = Enemy("Urg", 23)
+print(brother)
